@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lấy Zalo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="zalo-card">
+        <section class="hero" aria-label="Thong tin Zalo">
+            <div class="avatar">Q</div>
+            <p class="eyebrow">Liên hệ em qua Zalo</p>
+            <h1>Liên hệ với giáo viên</h1>
+
+            <a class="zalo-button" href="https://zalo.me/0856116692" target="_blank" rel="noopener">
+                Mở Zalo
+            </a>
+
+            <div class="phone-box">
+                <span>Số điện thoại: Cô Gia Hoàng</span>
+                <strong>0856 116 692</strong>
+                <button class="copy-button" type="button" data-phone="0856116692">Sao chép số</button>
+            </div>
+        </section>
+
+        <section class="qr-card" aria-label="Ma QR Zalo">
+            <div class="qr-placeholder">
+                <img src="./1781879068313_284281650910525604_7550020337814709650_2de88a9cefd6a0c5920f60b5c4cfd632.jpg" alt="QR Zalo">
+            </div>
+            <h2>Quét mã để thêm bạn</h2>
+        </section>
+    </main>
+
+    <script>
+        const copyButton = document.querySelector(".copy-button");
+
+        copyButton.addEventListener("click", () => {
+            const phone = copyButton.dataset.phone;
+
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(phone);
+            } else {
+                const input = document.createElement("textarea");
+                input.value = phone;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand("copy");
+                input.remove();
+            }
+
+            copyButton.textContent = "Đã sao chép";
+
+            setTimeout(() => {
+                copyButton.textContent = "Sao chép số";
+            }, 1800);
+        });
+    </script>
+</body>
+</html>

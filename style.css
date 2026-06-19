@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --card: #ffffff;
+    --ink: #142033;
+    --muted: #5d6b80;
+    --blue: #0068ff;
+    --blue-dark: #0051c8;
+    --line: #d9e6f5;
+    --shadow: 0 24px 70px rgba(20, 32, 51, 0.16);
+}
+
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 20% 15%, rgba(0, 104, 255, 0.18), transparent 28rem),
+        linear-gradient(135deg, #eef6ff 0%, #f8fbff 48%, #eaf7f1 100%);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.zalo-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+    width: min(920px, 100%);
+    overflow: hidden;
+    border: 1px solid rgba(217, 230, 245, 0.9);
+    border-radius: 8px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+}
+
+.hero,
+.qr-card {
+    padding: 42px;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.avatar {
+    display: grid;
+    place-items: center;
+    width: 86px;
+    aspect-ratio: 1;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 2.6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--blue), #11b67a);
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: var(--blue);
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    max-width: 520px;
+    margin-bottom: 16px;
+    font-size: clamp(2.4rem, 7vw, 5rem);
+    line-height: 0.98;
+    letter-spacing: 0;
+}
+
+.subtitle {
+    max-width: 520px;
+    margin-bottom: 30px;
+    color: var(--muted);
+    font-size: 1.08rem;
+    line-height: 1.7;
+}
+
+.zalo-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    min-height: 54px;
+    padding: 0 24px;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 1.02rem;
+    font-weight: 800;
+    background: var(--blue);
+    box-shadow: 0 14px 28px rgba(0, 104, 255, 0.28);
+    transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.zalo-button:hover {
+    transform: translateY(-2px);
+    background: var(--blue-dark);
+    box-shadow: 0 18px 34px rgba(0, 104, 255, 0.34);
+}
+
+.phone-box {
+    display: grid;
+    gap: 6px;
+    width: min(100%, 360px);
+    margin-top: 22px;
+    padding: 18px 20px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #f7fbff;
+}
+
+.phone-box span {
+    color: var(--muted);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.phone-box strong {
+    font-size: 1.55rem;
+    letter-spacing: 0;
+}
+
+.copy-button {
+    width: fit-content;
+    min-height: 38px;
+    margin-top: 8px;
+    padding: 0 14px;
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    color: var(--blue-dark);
+    font: inherit;
+    font-size: 0.92rem;
+    font-weight: 800;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.copy-button:hover {
+    background: #edf5ff;
+}
+
+.qr-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--line);
+    text-align: center;
+    background: #f8fbff;
+}
+
+.qr-placeholder {
+    display: grid;
+    place-items: center;
+    width: min(100%, 220px);
+    aspect-ratio: 1;
+    margin-bottom: 24px;
+    border: 2px dashed #a9c4e6;
+    border-radius: 8px;
+    color: var(--blue);
+    font-size: 2.4rem;
+    font-weight: 800;
+    background:
+        linear-gradient(90deg, rgba(0, 104, 255, 0.08) 50%, transparent 50%),
+        linear-gradient(rgba(0, 104, 255, 0.08) 50%, transparent 50%);
+    background-size: 28px 28px;
+}
+
+.qr-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.qr-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.qr-card p {
+    max-width: 260px;
+    margin-bottom: 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+@media (max-width: 760px) {
+    body {
+        padding: 16px;
+    }
+
+    .zalo-card {
+        grid-template-columns: 1fr;
+    }
+
+    .hero,
+    .qr-card {
+        padding: 28px;
+    }
+
+    .qr-card {
+        border-top: 1px solid var(--line);
+        border-left: 0;
+    }
+
+    .zalo-button,
+    .phone-box,
+    .copy-button {
+        width: 100%;
+    }
+}
+qr-placeholder img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
